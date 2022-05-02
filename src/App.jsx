@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Table, Button, Select, Form, Input } from 'antd';
 import axios from 'axios';
-import 'antd/dist/antd.css'
-import './App.css'
+import 'antd/dist/antd.css';
+import './App.css';
 import Header from './components/Header';
 import Person from './pages/Person';
 import Recommend from './pages/Recommed';
+import Detail from './pages/Detail';
 
 const defaultMovie = {
   title: '你的名字。',
@@ -27,13 +28,13 @@ const dataSource = [
     title: '阿凡达',
     grade: 4.8,
     recommender: 32,
-    genres: ["科幻", "战争", "爱情"]
+    genres: ['科幻', '战争', '爱情'],
   },
   {
     title: '头号玩家',
     grade: 4.3,
     recommender: 14,
-    genres: ["科幻", "猎奇"]
+    genres: ['科幻', '猎奇'],
   },
 ];
 
@@ -56,12 +57,11 @@ const columns = [
   {
     title: 'Genres',
     dataIndex: 'Genres',
-    key: 'Genres'
-  }
+    key: 'Genres',
+  },
 ];
 
 function App() {
-
   // const [data, setData] = useState(dataSource);
   // const [movieInfo, setMovieInfo] = useState(defaultMovie);
 
@@ -75,7 +75,6 @@ function App() {
   //   // const res = fetch();
   //   // setData(res.data);
   // }, []);
-
 
   // function load() {
   //   setData([]);
@@ -116,9 +115,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Recommend />}></Route>
         <Route path="/person" element={<Person />}></Route>
+        <Route path="/movie-detail/:id" element={<Detail />}></Route>
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
