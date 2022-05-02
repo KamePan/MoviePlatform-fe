@@ -1,0 +1,42 @@
+.recommend-page {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 20px 40px;
+}
+
+.recommend-card {
+    background: #fff;
+    width: 400px;
+}
+
+.hot-card {
+    background: #fff;
+    width: 400px;
+}
+
+.movies {
+    flex: 1;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.movies img {
+    width: 150px;
+}
+
+.movies .item-card {
+    background: #fff;
+    display: flex;
+    gap: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.movies .item-card .details {
+    width: 200px;
+    flex: 1;
+}
