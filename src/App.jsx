@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Person from './pages/Person';
 import Recommend from './pages/Recommed';
 import Detail from './pages/Detail';
+import Search from './pages/Search';
 
 const defaultMovie = {
   title: '你的名字。',
@@ -116,6 +117,7 @@ function App() {
         <Route path="/" element={<Recommend />}></Route>
         <Route path="/person" element={<Person />}></Route>
         <Route path="/movie-detail/:id" element={<Detail />}></Route>
+        <Route path="/search" element={<Search />}></Route>
       </Routes>
     </div>
   );

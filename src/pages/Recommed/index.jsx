@@ -1,5 +1,5 @@
-import { Rate } from 'antd';
 import { useNavigate } from 'react-router';
+import MovieCard from '../../components/MovieCard';
 
 import './index.css';
 
@@ -54,25 +54,6 @@ const movieInfo = [
   },
 ];
 
-function MovieCard(props) {
-  const { movie, onClick } = props;
-  return (
-    <div
-      className="flex-1 flex gap-4 p-4 bg-white rounded-xl cursor-pointer shadow shadow-gray-50"
-      onClick={() => onClick(movie.id)}
-    >
-      <img className="w-32" src={movie.coverUrl} alt="cover" />
-      <div className="flex-1 w-24 px-2 text-left space-y-2">
-        <h2 className="text-2xl font-bold">{movie.title}</h2>
-        <Rate defaultValue={3} disabled />
-        <p className="line-clamp-6 text-sm" title={movie.description}>
-          {movie.description}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default function Recommend() {
   const navigate = useNavigate();
 
@@ -83,7 +64,7 @@ export default function Recommend() {
   return (
     <main className="mt-4">
       <div className="mx-4 px-36">
-        <div className="px-2 py-2">
+        <div className="px-2 py-2 mb-2">
           <h1 className="text-left text-2xl text-gray-50">个人推荐</h1>
         </div>
         <div>
@@ -96,13 +77,16 @@ export default function Recommend() {
       </div>
 
       <div className="mx-4 px-36 mt-4">
-        <div className="px-2 py-2">
+        <div className="px-2 py-2 mb-2">
           <h1 className="text-left text-2xl text-gray-50">高分电影</h1>
         </div>
         <div>
           <div className="grid grid-cols-3 gap-4">
             {movieInfo.map(movie => (
-              <MovieCard movie={movie} />
+              <MovieCard
+                movie={movie}
+                onClick={() => navigate('/movie-detail/' + movie.id)}
+              />
             ))}
           </div>
         </div>
